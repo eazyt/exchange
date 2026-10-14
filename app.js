@@ -11,6 +11,11 @@ app.use(express.urlencoded({ extended: true }));
 // In-memory store for accepted rates history
 let acceptedRatesHistory = [];
 
+//health check
+app.get('/', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // Form page
 app.get('/exchange-rate', (req, res) => {
   res.send(`
